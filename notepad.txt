@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GlowGuide - Skin Care Advisor</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#FFF5E1; /* Cream */
+text-align:center;
+margin:0;
+}
+
+header{
+background:#9CAF88; /* Sage Green */
+color:white;
+padding:25px;
+}
+
+h1{
+margin:0;
+}
+
+.container{
+margin-top:30px;
+}
+
+.question{
+margin:20px;
+}
+
+select{
+padding:8px;
+font-size:15px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+padding:12px 25px;
+background:#C6A75E; /* Gold */
+border:none;
+color:white;
+font-size:16px;
+cursor:pointer;
+border-radius:6px;
+}
+
+button:hover{
+background:#b8954f;
+}
+
+.result{
+margin-top:30px;
+font-size:18px;
+background:white;
+padding:20px;
+width:60%;
+margin-left:auto;
+margin-right:auto;
+border-radius:10px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+}
+
+footer{
+margin-top:50px;
+background:#9CAF88;
+color:white;
+padding:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>GlowGuide</h1>
+<p>Your Personalized Skin Care Advisor</p>
+</header>
+
+<div class="container">
+
+<h2>Skin Quiz</h2>
+
+<div class="question">
+<label>1. Your Skin Type</label><br><br>
+<select id="skin">
+<option value="">Select</option>
+<option value="oily">Oily</option>
+<option value="dry">Dry</option>
+<option value="combination">Combination</option>
+<option value="sensitive">Sensitive</option>
+</select>
+</div>
+
+<div class="question">
+<label>2. Main Skin Concern</label><br><br>
+<select id="problem">
+<option value="">Select</option>
+<option value="acne">Acne</option>
+<option value="pigmentation">Pigmentation</option>
+<option value="dull">Dull Skin</option>
+<option value="spots">Dark Spots</option>
+</select>
+</div>
+
+<button onclick="recommend()">Get Recommendation</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<footer>
+<p>© 2026 GlowGuide | Smart Skin Care Recommendations</p>
+</footer>
+
+<script>
+
+function recommend(){
+
+let skin = document.getElementById("skin").value;
+let problem = document.getElementById("problem").value;
+
+let result = "";
+
+if(skin=="oily" && problem=="acne"){
+result = `
+<h3>Recommended Routine</h3>
+Cleanser: Salicylic Acid Cleanser<br>
+Serum: Niacinamide Serum<br>
+Moisturizer: Oil-Free Gel Moisturizer<br>
+Sunscreen: SPF 50 Gel Sunscreen
+`;
+}
+
+else if(skin=="dry"){
+result = `
+<h3>Recommended Routine</h3>
+Cleanser: Hydrating Cleanser<br>
+Serum: Hyaluronic Acid Serum<br>
+Moisturizer: Ceramide Cream<br>
+Sunscreen: Moisturizing SPF 50 Sunscreen
+`;
+}
+
+else if(problem=="pigmentation"){
+result = `
+<h3>Recommended Routine</h3>
+Cleanser: Gentle Cleanser<br>
+Serum: Vitamin C Serum<br>
+Moisturizer: Brightening Moisturizer<br>
+Sunscreen: SPF 50 Sunscreen
+`;
+}
+
+else{
+result = "Please select options to get recommendation.";
+}
+
+document.getElementById("result").innerHTML = result;
+
+}
+
+</script>
+
+</body>
+</html>
